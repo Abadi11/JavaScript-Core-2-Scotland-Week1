@@ -30,12 +30,17 @@ let destination1 = {
 // It should return true if the distance of the destination is less than 400 Kms
 // otherwise return false
 
+function isNear (destination){
+  return destination.distanceKms < 400;
+}
 
-
+function getName (destination){
+return destination.destinationName;
+}
 // 2. Use array.filter to create a new array with all the 
 // destination Objects less than 400 Kms away
-
+let closeDestination = travelDestinations.filter(isNear);
 
 
 // 3. Print the new array of Objects to the screen
-
+console.log(closeDestination.map(getName))
