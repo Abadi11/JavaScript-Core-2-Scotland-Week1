@@ -45,17 +45,35 @@ let restaurant1 = {
     findAvailableRestaurants: function (numberOfPeople) {
       // 1. Complete this method findAvailableRestaurants which takes a number of people in parameter 
       // and returns all the restaurant names which have the required number of seats available at the moment.
-
+      let restaurantList = [];
+      for (let i = 0; i<restaurants.length; i++){
+        if (restaurants[i].totalSeats - restaurants[i].numberOfCustomers > numberOfPeople){
+          restaurantList.push (restaurants[i].name)
+        }
+      }
+      return restaurantList;
     },
     findRestaurantServingDish: function (dishName) {
       // 2. Complete this method findRestaurantServingDish which takes a dish name in parameter 
       // and returns all the restaurant names serving this dish.
-
+      let restaurantList = [];
+      for (let i = 0; i<restaurants.length; i++){
+        if (restaurants[i].menu.includes(dishName)){
+           restaurantList.push(restaurants[i].name)
+        }
+      }
+      return restaurantList
     },
     countNumberOfRestaurantsInArea: function (area) {
       // 3. Complete this method countNumberOfRestaurantsInArea which takes an area of Glasgow in parameter (center, west), 
       // and returns the number of restaurants in this area.
-      
+      let total = 0;
+      for (let i = 0; i<restaurants.length; i++){
+        if (restaurants[i].address.area.includes(area)){
+          total = total + 1//restaurants[i].name
+        }
+      }
+      return total
     },
   };
   

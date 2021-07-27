@@ -9,7 +9,12 @@
 
 function withdrawFunds(customerAccount, amount){
     // Write your answer here
-
+    if (customerAccount.accountBalance >= amount){
+        customerAccount.accountBalance = customerAccount.accountBalance - amount
+        return "Success, balance is now " + customerAccount.accountBalance
+    }else{
+        return "Failed, balance is now " + customerAccount.accountBalance
+    }
 }
 
 
@@ -20,7 +25,7 @@ let account1 = {
 
 
 let result1 = withdrawFunds(account1, 50);
-console.log(result1);
+console.log(result1 , result1 === "Success, balance is now 70");
 
 let result2 = withdrawFunds(account1, 50);
 console.log(result2);
